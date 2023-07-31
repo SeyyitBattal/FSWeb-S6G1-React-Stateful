@@ -11,7 +11,7 @@ Aynı zaman içinde yalnız bir harika programcıyı öne çıkarabiliriz.
 Yorumları takip edin.
 */
 
-import React from "react";
+import React, { useState } from "react";
 /* ADIM 0  */
 
 // Bu değişkeni YALNIZCA bir state dilimini başlatmak için kullanın!
@@ -27,6 +27,9 @@ export const enIyilerListesi = [
 ];
 
 export default function Programcilar() {
+  const [liste, setListe] = useState();
+  const [idNo, setIdNo] = useState();
+
   // İki state dilimine ihtiyacımız olduğundan, state hooku iki kez kullanmamız gerekecek..
   // Bir yanda programcılar listesi, diğer yanda öne çıkan programcının idsi.
 
