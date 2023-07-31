@@ -30,7 +30,7 @@ ADIM 2: +
 ADIM 3: +
   'döndürücüAçık' değerine bağlı olarak "Gizle" veya "Göster" metni oluşturmak için button içinde bir ifade kullanın.
 
-ADIM 4:
+ADIM 4: +
   Bu click handlerın, "açık olup olmadığını" şu anda olduğunun tersi olacak şekilde ayarlayarak döndürücüyü değiştirmesi gerekir.
   "not" için kullandığımız operatörü hatırlıyor musunuz??
 */
