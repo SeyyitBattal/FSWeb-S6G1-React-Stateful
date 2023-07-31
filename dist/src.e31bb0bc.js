@@ -29202,21 +29202,21 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; } /*
                                                                       Fakat tek bir state dilimi yeterlidir, döndürücü.
                                                                       Metini bu state e göre yazdırabiliriz.
                                                                       
-                                                                      ADIM 0:
+                                                                      ADIM 0: +
                                                                         Aşağıdaki bileşeni inceleyerek ve state hookunu import ederek başlayın.
                                                                       
-                                                                      ADIM 1:
+                                                                      ADIM 1: +
                                                                         State hookunu kullanara, bir 'döndürücüAçık', 'setdöndürücüAcik' çifti oluşturun.
                                                                         'döndürücüAçık' true olarak yüklendiğinde döndürücü görünür olacak.
                                                                       
-                                                                      ADIM 2:
+                                                                      ADIM 2: +
                                                                         Bu mantıksal bir ifadedir. '&&'nin her iki yanındaki ifadeler true ise,
                                                                         sağdaki değer tüm ifadenin değeri olur. '&&'nin her iki tarafında bir ifade varsa
                                                                         ve false sa, soldaki tüm satırın değeri olur. 
                                                                       
                                                                         Sabit yazılmış 'true' döndürücü açık veya kapalı durumuna göre değiştirin.
                                                                       
-                                                                      ADIM 3:
+                                                                      ADIM 3: +
                                                                         'döndürücüAçık' değerine bağlı olarak "Gizle" veya "Göster" metni oluşturmak için button içinde bir ifade kullanın.
                                                                       
                                                                       ADIM 4:
@@ -29227,24 +29227,24 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; } /*
 
 function Dondurucu() {
   /* ADIM 1 */
-
+  var _useState = (0, _react.useState)(true),
+    _useState2 = _slicedToArray(_useState, 2),
+    döndürücüAçık = _useState2[0],
+    setdöndürücüAcik = _useState2[1];
+  var butonYazi;
+  döndürücüAçık ? butonYazi = "Gizle" : butonYazi = "Göster";
   var toggleDondurucu = function toggleDondurucu() {
-    /* ADIM 4 */
-
-    var _useState = (0, _react.useState)(),
-      _useState2 = _slicedToArray(_useState, 2),
-      showHide = _useState2[0],
-      setShowHide = _useState2[1];
+    setdöndürücüAcik(!döndürücüAçık);
   };
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "widget-spinner container"
-  }, /*#__PURE__*/_react.default.createElement("h2", null, "D\xF6nd\xFCr\xFCc\xFC"), true && /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("h2", null, "D\xF6nd\xFCr\xFCc\xFC"), döndürücüAçık && /*#__PURE__*/_react.default.createElement("div", {
     id: "d\xF6nd\xFCr\xFCc\xFC",
     className: "spinner"
   }, "--+--") /* ADIM 2 */, /*#__PURE__*/_react.default.createElement("button", {
     id: "toggleDondurucu",
     onClick: toggleDondurucu
-  }, "Gizle "));
+  }, butonYazi));
 }
 },{"react":"../node_modules/react/index.js"}],"components/Kareler.js":[function(require,module,exports) {
 "use strict";
@@ -29440,7 +29440,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53687" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57465" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
