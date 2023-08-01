@@ -30,20 +30,23 @@ export default function Kareler() {
 
   const ClassAdiAl = (id) => {
     if (id == aktifKare) {
-      classAdi = "active";
+      return "active";
     } else {
-      classAdi = "";
+      return "";
     }
 
     // Bu bir click handler değildir, JSX içinde kullanılan bir yardımcıdır(helper).(aşağıya bakın)
     // Eğer argüman olarak verilen id aktif kare state'indeki id ile eşleşirse, class adı 'active' olan bir string döndürecek
     // diğer durumlar için boş döndürecek.
     // Etkisini görmek için kareye sağ tıklayın ve "öğeyi inceleyin".
-    return "";
   };
 
   const AktifEt = (id) => {
-    id = setAktifKare(aktifKare);
+    if (aktifKare == id) {
+      setAktifKare(null);
+    } else {
+      setAktifKare(id);
+    }
     // Bu bir _satır içinden çağırılmış_ click handler yardımcısıdır.
     // id bağımsız değişkenini, stateteki aktif id olacak şekilde ayarlayın
     // eğer zaten aktifse, o zaman önce state i resetlemeliyiz.

@@ -40,13 +40,15 @@ export default function Input() {
   let inputColor;
   const [inputDeğeri, setInputDeğeri] = useState("");
 
-  if (inputDeğeri.length > 10) inputColor = "crimson";
+  // if (inputDeğeri.length > 10) inputColor = "crimson";
 
   const inputuDeğiştir = (evt) => {
     // When the input changes, its whole value can be found inside the event object.
     // Log out the synthetic event object 'evt' and see for yourself.
 
-    const { inputDeğeri } = evt.target;
+    const { value } = evt.target;
+    console.log("value: ", value);
+    setInputDeğeri(value);
 
     /* ADIM 4 */
   };
@@ -59,7 +61,7 @@ export default function Input() {
   const stil = {
     fontSize: "1.5em",
     marginBottom: "0.3em",
-    color: inputColor /* ADIM 2 */,
+    color: inputDeğeri.length > 10 ? "crimson" : "royalblue" /* ADIM 2 */,
   };
 
   return (
@@ -67,7 +69,12 @@ export default function Input() {
       <h2>Input</h2>
       <div id="output" style={stil}></div> {inputDeğeri.toUpperCase()}
       <div>
-        <input id="input" type="text" onChange={inputuDeğiştir} />{" "}
+        <input
+          id="input"
+          type="text"
+          onChange={inputuDeğiştir}
+          value={inputDeğeri}
+        />{" "}
         {/* ADIM 6 */}
         <button id="resetInput" onClick={reset}>
           Reset

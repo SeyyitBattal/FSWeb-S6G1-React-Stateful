@@ -29060,12 +29060,16 @@ function Input() {
     _useState2 = _slicedToArray(_useState, 2),
     inputDeğeri = _useState2[0],
     setInputDeğeri = _useState2[1];
-  if (inputDeğeri.length > 10) inputColor = "crimson";
+
+  // if (inputDeğeri.length > 10) inputColor = "crimson";
+
   var inputuDeğiştir = function inputuDeğiştir(evt) {
     // When the input changes, its whole value can be found inside the event object.
     // Log out the synthetic event object 'evt' and see for yourself.
 
-    var inputDeğeri = evt.target.inputDeğeri;
+    var value = evt.target.value;
+    console.log("value: ", value);
+    setInputDeğeri(value);
 
     /* ADIM 4 */
   };
@@ -29077,7 +29081,7 @@ function Input() {
   var stil = {
     fontSize: "1.5em",
     marginBottom: "0.3em",
-    color: inputColor /* ADIM 2 */
+    color: inputDeğeri.length > 10 ? "crimson" : "royalblue" /* ADIM 2 */
   };
 
   return /*#__PURE__*/_react.default.createElement("div", {
@@ -29088,7 +29092,8 @@ function Input() {
   }), " ", inputDeğeri.toUpperCase(), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("input", {
     id: "input",
     type: "text",
-    onChange: inputuDeğiştir
+    onChange: inputuDeğiştir,
+    value: inputDeğeri
   }), " ", /*#__PURE__*/_react.default.createElement("button", {
     id: "resetInput",
     onClick: reset
@@ -29308,19 +29313,23 @@ function Kareler() {
 
   var ClassAdiAl = function ClassAdiAl(id) {
     if (id == aktifKare) {
-      classAdi = "active";
+      return "active";
     } else {
-      classAdi = "";
+      return "";
     }
 
     // Bu bir click handler değildir, JSX içinde kullanılan bir yardımcıdır(helper).(aşağıya bakın)
     // Eğer argüman olarak verilen id aktif kare state'indeki id ile eşleşirse, class adı 'active' olan bir string döndürecek
     // diğer durumlar için boş döndürecek.
     // Etkisini görmek için kareye sağ tıklayın ve "öğeyi inceleyin".
-    return "";
   };
+
   var AktifEt = function AktifEt(id) {
-    id = setAktifKare(aktifKare);
+    if (aktifKare == id) {
+      setAktifKare(null);
+    } else {
+      setAktifKare(id);
+    }
     // Bu bir _satır içinden çağırılmış_ click handler yardımcısıdır.
     // id bağımsız değişkenini, stateteki aktif id olacak şekilde ayarlayın
     // eğer zaten aktifse, o zaman önce state i resetlemeliyiz.
@@ -29491,7 +29500,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61614" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64783" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
